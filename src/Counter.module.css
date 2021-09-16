@@ -1,0 +1,48 @@
+.wrapper {
+  width: 200px;
+  margin: 0 auto;
+  padding: 6px;
+
+  border: 1px solid #478b7f;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid #478b7f;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btn {
+  background-color: #478b7f;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 40%;
+  font-weight: bold;
+}
+
+.count {
+  font-size: 55px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 75px;
+  background-color: #478b7f;
+}
+
+.red {
+  font-size: 55px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 75px;
+  background-color: #478b7f;
+  color: #b80000;
+}
