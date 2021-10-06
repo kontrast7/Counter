@@ -1,5 +1,9 @@
 .wrapper {
-  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  height: 30%;
   margin: 0 auto;
   padding: 6px;
   border: 1px solid #478b7f;
@@ -24,24 +28,37 @@
 }
 
 .count {
-  font-size: 55px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 35px;
   font-weight: bold;
   margin-bottom: 5px;
-  text-align: center;
   border: 1px solid black;
   border-radius: 10px;
-  /*height: 75px;*/
+  height: 118px;
   background-color: #478b7f;
 }
 
 .red {
-  font-size: 55px;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 35px;
   font-weight: bold;
   margin-bottom: 5px;
   text-align: center;
   border: 1px solid black;
   border-radius: 10px;
-/*  height: 75px;*/
+  height: 118px;
   background-color: #478b7f;
   color: #b80000;
+}
+.inp {
+  font-size: 13px;
+  padding: 6px 8px 4px 10px;
+  border: 1px solid #cecece;
+  background: #478b7f;
+  border-radius: 8px;
 }

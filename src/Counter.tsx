@@ -55,6 +55,7 @@ export const Counter = () => {
       <div className={s.wrapper}>
         <span style={{ color: "white" }}>max Value</span>
         <input
+          className={s.inp}
           type={"number"}
           placeholder={"maxValue"}
           onChange={maxValueHandler}
@@ -63,6 +64,7 @@ export const Counter = () => {
         <br />
         <span style={{ color: "white" }}>start Value</span>
         <input
+          className={s.inp}
           type={"number"}
           placeholder={"startValue"}
           onChange={startValueHandler}
