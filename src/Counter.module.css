@@ -1,8 +1,7 @@
 .wrapper {
-  width: 200px;
+  width: 500px;
   margin: 0 auto;
   padding: 6px;
-
   border: 1px solid #478b7f;
   border-radius: 10px;
   background-color: black;
@@ -31,7 +30,7 @@
   text-align: center;
   border: 1px solid black;
   border-radius: 10px;
-  height: 75px;
+  /*height: 75px;*/
   background-color: #478b7f;
 }
 
@@ -42,7 +41,7 @@
   text-align: center;
   border: 1px solid black;
   border-radius: 10px;
-  height: 75px;
+/*  height: 75px;*/
   background-color: #478b7f;
   color: #b80000;
 }

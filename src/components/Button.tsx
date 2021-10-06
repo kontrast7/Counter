@@ -4,7 +4,7 @@ import s from "../Counter.module.css";
 type propsType = {
   callback: () => void;
   nameButton: string;
-  disable: boolean;
+  disable?: boolean;
 };
 
 export const Button = (props: propsType) => {
