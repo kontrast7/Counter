@@ -73,7 +73,7 @@ export const Counter = () => {
         />
       </div>
       <div className={s.wrapper}>
-        <Table value={value.value} max={value.max} min={value.min} />
+       {/* <Table value={value.value} max={value.max} min={value.min} />*/}
         <div className={s.buttons}>
           <Button
             callback={valueInc}

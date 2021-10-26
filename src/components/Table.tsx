@@ -10,10 +10,12 @@ type propsType = {
 export const Table = (props: propsType) => {
   return (
     <div className={props.value === props.max ? s.red : s.count}>
-      {/*{props.min < props.max ? props.value : "error"}*/}
-      {props.min > props.max || props.max < 0 || props.min < 0
-        ? "Error"
+      {props.max < props.min
+        ? "Min > Max"
+        : props.min < 0 || props.max < 0
+        ? "Минус нельзя!"
         : props.value}
     </div>
   );
 };
+

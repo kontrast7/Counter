@@ -36,22 +36,22 @@ export const counterReducer = (
 ) => {
   switch (action.type) {
     case "START_VALUE_HANDLER": {
-      return {
-        ...state,
-        value: "Введите данные и нажмите set",
-        min: action.e,
-        isDisabledBtn: true,
-        isDisabledSet: false,
-      };
+        return {
+          ...state,
+          value: "Введите данные и нажмите set",
+          min: action.e,
+          isDisabledBtn: true,
+          isDisabledSet: false,
+        };
     }
     case "MAX_VALUE_HANDLER": {
-      return {
-        ...state,
-        value: "Введите данные и нажмите set",
-        max: action.e,
-        isDisabledBtn: true,
-        isDisabledSet: false,
-      };
+        return {
+          ...state,
+          value: "Введите данные и нажмите set",
+          max: action.e,
+          isDisabledBtn: true,
+          isDisabledSet: false,
+        };
     }
     case "SET_BTN": {
       localStorage.setItem("start", JSON.stringify(state.min));
