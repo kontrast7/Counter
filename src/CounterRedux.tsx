@@ -1,9 +1,11 @@
-import React, { ChangeEvent, useEffect, useReducer } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import s from "./Counter.module.css";
 import { Table } from "./components/Table";
 import { Button } from "./components/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { AppStateType } from "./BLL/store";
 import {
-  initialState,
+  initialStateType,
   maxValueHandlerAC,
   numMaxAC,
   numMinAC,
@@ -11,25 +13,29 @@ import {
   setBtnAC,
   startValueHandlerAC,
   valueIncAC,
-  ValueReducer,
-} from "./reducers/valueReducer";
+} from "./BLL/counterReducer";
 
-export const Counter = () => {
-  const [value, dispatchValue] = useReducer(ValueReducer, initialState);
+export const CounterRedux = () => {
+  const value = useSelector<AppStateType, initialStateType>(
+    (state) => state.counter
+  );
+
+  const dispatch = useDispatch();
+
   const startValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatchValue(startValueHandlerAC(+e.currentTarget.value));
+    dispatch(startValueHandlerAC(+e.currentTarget.value));
   };
   const maxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatchValue(maxValueHandlerAC(+e.currentTarget.value));
+    dispatch(maxValueHandlerAC(+e.currentTarget.value));
   };
   const setBtn = () => {
-    dispatchValue(setBtnAC());
+    dispatch(setBtnAC());
   };
   const valueInc = () => {
-    dispatchValue(valueIncAC());
+    dispatch(valueIncAC());
   };
   const resetValueInc = () => {
-    dispatchValue(resetValueIncAC());
+    dispatch(resetValueIncAC());
   };
 
   useEffect(() => {
@@ -37,11 +43,11 @@ export const Counter = () => {
     let minLoc = localStorage.getItem("start");
     if (minLoc != null) {
       let numMin = JSON.parse(minLoc);
-      dispatchValue(numMinAC(numMin));
+      dispatch(numMinAC(numMin));
     }
     if (maxLoc != null) {
       let numMax = JSON.parse(maxLoc);
-      dispatchValue(numMaxAC(numMax));
+      dispatch(numMaxAC(numMax));
     }
   }, []);
 
@@ -52,7 +58,7 @@ export const Counter = () => {
         <input
           className={s.inp}
           type={"number"}
-          placeholder={"maxValue"}
+          placeholder={"Max value"}
           onChange={maxValueHandler}
           value={value.max}
         />
@@ -61,7 +67,7 @@ export const Counter = () => {
         <input
           className={s.inp}
           type={"number"}
-          placeholder={"startValue"}
+          placeholder={"Start value"}
           onChange={startValueHandler}
           value={value.min}
         />
@@ -78,7 +84,7 @@ export const Counter = () => {
           <Button
             callback={valueInc}
             nameButton={"inc"}
-            disable={value.isDisabledBtn || value.max === value.value}
+            disable={value.isDisabledBtn || value.value === value.max}
           />
           <Button
             callback={resetValueInc}
@@ -90,3 +96,32 @@ export const Counter = () => {
     </>
   );
 };
+
+/*    const [value, dispatchValue] = useReducer(ValueReducer, initialState);
+  const startValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+	dispatchValue(startValueHandlerAC(+e.currentTarget.value));
+  };
+  const maxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+	dispatchValue(maxValueHandlerAC(+e.currentTarget.value));
+  };
+  const setBtn = () => {
+	dispatchValue(setBtnAC());
+  };
+  const valueInc = () => {
+	dispatchValue(valueIncAC());
+  };
+  const resetValueInc = () => {
+	dispatchValue(resetValueIncAC());
+  };
+  useEffect(() => {
+	let maxLoc = localStorage.getItem("max");
+	let minLoc = localStorage.getItem("start");
+	if (minLoc != null) {
+	  let numMin = JSON.parse(minLoc);
+	  dispatchValue(numMinAC(numMin));
+	}
+	if (maxLoc != null) {
+	  let numMax = JSON.parse(maxLoc);
+	  dispatchValue(numMaxAC(numMax));
+	}
+  }, []);*/

@@ -12,7 +12,7 @@ export const Table = (props: propsType) => {
     <div className={props.value === props.max ? s.red : s.count}>
       {/*{props.min < props.max ? props.value : "error"}*/}
       {props.min > props.max || props.max < 0 || props.min < 0
-        ? "error"
+        ? "Error"
         : props.value}
     </div>
   );

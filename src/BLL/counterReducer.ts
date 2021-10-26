@@ -1,20 +1,3 @@
-export type initialStateType = {
-  value: number | string;
-  max: number;
-  min: number;
-  isDisabledSet: boolean;
-  isDisabledBtn: boolean;
-};
-
-export type allType =
-    | startValueHandlerACType
-    | maxValueHandlerACType
-    | setBtnACType
-    | resetValueIncACType
-    | valueIncACType
-    | numMaxACType
-    | numMinACType;
-
 type startValueHandlerACType = ReturnType<typeof startValueHandlerAC>;
 type maxValueHandlerACType = ReturnType<typeof maxValueHandlerAC>;
 type setBtnACType = ReturnType<typeof setBtnAC>;
@@ -22,19 +5,35 @@ type resetValueIncACType = ReturnType<typeof resetValueIncAC>;
 type valueIncACType = ReturnType<typeof valueIncAC>;
 type numMaxACType = ReturnType<typeof numMaxAC>;
 type numMinACType = ReturnType<typeof numMinAC>;
+export type allType =
+  | startValueHandlerACType
+  | maxValueHandlerACType
+  | setBtnACType
+  | resetValueIncACType
+  | valueIncACType
+  | numMaxACType
+  | numMinACType;
 
-export let initialState = {
-  value: "0",
+/*export type initialStateType = {
+  value: string | number;
+  max: number;
+  min: number;
+  isDisabledSet: boolean;
+  isDisabledBtn: boolean;
+}*/
+const initialState = {
+  value: "0" as string | number,
   max: 5,
   min: 0,
   isDisabledSet: false,
   isDisabledBtn: true,
 };
+export type initialStateType = typeof initialState;
 
-export const ValueReducer = (
+export const counterReducer = (
   state: initialStateType = initialState,
   action: allType
-): initialStateType => {
+) => {
   switch (action.type) {
     case "START_VALUE_HANDLER": {
       return {
@@ -52,7 +51,6 @@ export const ValueReducer = (
         max: action.e,
         isDisabledBtn: true,
         isDisabledSet: false,
-        
       };
     }
     case "SET_BTN": {
@@ -71,7 +69,7 @@ export const ValueReducer = (
     case "VALUE_INC": {
       if (typeof state.value === "number" && state.value < state.max) {
         return { ...state, value: state.value + 1 };
-      }else return state
+      } else return state;
     }
     case "NUM_MAX": {
       return {
